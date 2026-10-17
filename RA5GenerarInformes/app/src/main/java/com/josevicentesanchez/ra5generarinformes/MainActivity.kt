@@ -1,5 +1,6 @@
 package com.josevicentesanchez.ra5generarinformes
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -73,6 +74,16 @@ class MainActivity : ComponentActivity() {
             val ofertasFiltradas = filtrarOfertasPorCiudad(ciudadSeleccionada)
             mostrarResultado(ciudadSeleccionada, ofertasFiltradas)
         }
+
+        botonExportarPdf.setOnClickListener {
+            val ciudadSeleccionada = spinnerCiudad.selectedItem.toString()
+            val ofertasFiltradas = filtrarOfertasPorCiudad(ciudadSeleccionada)
+            mostrarResultado(ciudadSeleccionada, ofertasFiltradas)
+            contenedorInforme.post {
+                abrirSelectorParaGuardarPdf()
+            }
+        }
+
     }
 
     private fun configurarSpinner() {
@@ -174,6 +185,15 @@ class MainActivity : ComponentActivity() {
         textoCantidadValencia.text = ofertasValencia.toString()
         textoCantidadMadrid.text = ofertasMadrid.toString()
         textoCantidadAlicante.text = ofertasAlicante.toString()
+    }
+
+    private val codigoCrearPdf = 100
+    private fun abrirSelectorParaGuardarPdf() {
+        val intent = Intent(Intent.ACTION_CREATE_DOCUMENT)
+        intent.addCategory(Intent.CATEGORY_OPENABLE)
+        intent.type = "application/pdf"
+        intent.putExtra(Intent.EXTRA_TITLE, "informe_ofertas.pdf")
+        startActivityForResult(intent, codigoCrearPdf)
     }
 
 }
