@@ -196,6 +196,20 @@ class MainActivity : ComponentActivity() {
         startActivityForResult(intent, codigoCrearPdf)
     }
 
+    override fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int,
+        data: Intent?
+    ) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == codigoCrearPdf && resultCode == RESULT_OK) {
+            val uriPdf = data?.data
+            if (uriPdf != null) {
+                exportarInformePdf(uriPdf)
+            }
+        }
+    }
+
 }
 
 @Composable
