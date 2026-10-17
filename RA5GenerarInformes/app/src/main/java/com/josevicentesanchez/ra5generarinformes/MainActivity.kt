@@ -1,6 +1,8 @@
 package com.josevicentesanchez.ra5generarinformes
 
 import android.content.Intent
+import android.graphics.pdf.PdfDocument
+import android.net.Uri
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -20,6 +22,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.josevicentesanchez.ra5generarinformes.ui.theme.RA5GenerarInformesTheme
 import org.json.JSONArray
+import android.graphics.Color
+import android.graphics.Paint
+import android.widget.Toast
+import kotlin.math.min
 
 class MainActivity : ComponentActivity() {
 
@@ -208,6 +214,59 @@ class MainActivity : ComponentActivity() {
                 exportarInformePdf(uriPdf)
             }
         }
+    }
+
+    private fun exportarInformePdf(uriPdf: Uri) {
+        val documentoPdf = PdfDocument()
+        val pagina = PdfDocument.PageInfo.Builder(
+            595,
+            842,
+            1
+        ).create()
+        val paginaPdf = documentoPdf.startPage(pagina)
+        val canvas = paginaPdf.canvas
+
+        val pinturaTitulo = Paint()
+        pinturaTitulo.color = Color.BLACK
+        pinturaTitulo.textSize = 24f
+        pinturaTitulo.isFakeBoldText = true
+        canvas.drawColor(Color.WHITE)
+        canvas.drawText(
+            "Informe de ofertas",
+            32f,
+            48f,
+            pinturaTitulo
+        )
+
+        val anchoDisponible = 531f
+        val altoDisponible = 760f
+        val anchoInforme = contenedorInforme.width
+        val altoInforme = contenedorInforme.height
+        if (anchoInforme > 0 && altoInforme > 0) {
+            val escala = min(
+                anchoDisponible / anchoInforme,
+                altoDisponible / altoInforme
+            )
+            canvas.save()
+            canvas.translate(32f, 72f)
+            canvas.scale(escala, escala)
+            contenedorInforme.draw(canvas)
+            canvas.restore()
+        }
+
+        documentoPdf.finishPage(paginaPdf)
+        val salida = contentResolver.openOutputStream(uriPdf)
+        if (salida != null) {
+            salida.use {
+                documentoPdf.writeTo(salida)
+            }
+            Toast.makeText(
+                this,
+                "PDF guardado",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+        documentoPdf.close()
     }
 
 }
