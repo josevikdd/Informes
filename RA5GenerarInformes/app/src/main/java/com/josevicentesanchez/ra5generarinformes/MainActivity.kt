@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.josevicentesanchez.ra5generarinformes.ui.theme.RA5GenerarInformesTheme
+import org.json.JSONArray
 
 class MainActivity : ComponentActivity() {
 
@@ -37,6 +38,8 @@ class MainActivity : ComponentActivity() {
     private lateinit var textoCantidadMadrid: TextView
     private lateinit var textoCantidadAlicante: TextView
     private lateinit var contenedorOfertas: LinearLayout
+    private val ofertas = ArrayList<Oferta>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +65,8 @@ class MainActivity : ComponentActivity() {
         contenedorOfertas = findViewById(R.id.contenedorOfertas)
 
         configurarSpinner()
+
+        ofertas.addAll(cargarOfertas())
     }
 
     private fun configurarSpinner() {
@@ -75,6 +80,26 @@ class MainActivity : ComponentActivity() {
             android.R.layout.simple_spinner_dropdown_item
         )
         spinnerCiudad.adapter = adaptador
+    }
+
+    private fun cargarOfertas(): ArrayList<Oferta> {
+        val listaOfertas = ArrayList<Oferta>()
+        val textoJson = assets.open("ofertas.json")
+            .bufferedReader()
+            .use { it.readText() }
+        val arrayJson = JSONArray(textoJson)
+        for (i in 0 until arrayJson.length()) {
+            val objetoJson = arrayJson.getJSONObject(i)
+            val oferta = Oferta(
+                objetoJson.getInt("id"),
+                objetoJson.getString("puesto"),
+                objetoJson.getString("empresa"),
+                objetoJson.getString("ciudad"),
+                objetoJson.getInt("salario")
+            )
+            listaOfertas.add(oferta)
+        }
+        return listaOfertas
     }
 }
 
