@@ -1,6 +1,7 @@
 package com.josevicentesanchez.ra5generarinformes
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.ProgressBar
@@ -42,6 +43,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+
         spinnerCiudad = findViewById(R.id.spinnerCiudad)
         botonGenerarInforme = findViewById(R.id.botonGenerarInforme)
         botonExportarPdf = findViewById(R.id.botonExportarPdf)
@@ -59,16 +61,20 @@ class MainActivity : ComponentActivity() {
         textoCantidadAlicante = findViewById(R.id.textoCantidadAlicante)
         contenedorOfertas = findViewById(R.id.contenedorOfertas)
 
-        setContent {
-            RA5GenerarInformesTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
+        configurarSpinner()
+    }
+
+    private fun configurarSpinner() {
+        val ciudades = arrayOf("Todas", "Valencia", "Madrid", "Alicante")
+        val adaptador = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_item,
+            ciudades
+        )
+        adaptador.setDropDownViewResource(
+            android.R.layout.simple_spinner_dropdown_item
+        )
+        spinnerCiudad.adapter = adaptador
     }
 }
 
