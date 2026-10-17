@@ -72,6 +72,15 @@ class MainActivity : ComponentActivity() {
             val ciudadSeleccionada = spinnerCiudad.selectedItem.toString()
             val ofertasFiltradas = filtrarOfertasPorCiudad(ciudadSeleccionada)
             mostrarResultado(ciudadSeleccionada, ofertasFiltradas)
+
+            val numeroOfertas = ofertasFiltradas.size
+            val salarioTotal = ofertasFiltradas.sumOf { it.salario }
+            val salarioMedio = if (ofertasFiltradas.size > 0) {
+                ofertasFiltradas.map { it.salario }.average()
+            } else {
+                0.0
+            }
+            val salarioMaximo = ofertasFiltradas.maxOfOrNull { it.salario } ?: 0
         }
     }
 
