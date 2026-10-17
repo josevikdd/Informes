@@ -103,5 +103,19 @@
     "empresa": "DataMar",
     "ciudad": "Alicante",
     "salario": 22500
+  },
+  {
+    "id": 16,
+    "puesto": "Analista de Datos Junior",
+    "empresa": "DataMar",
+    "ciudad": "Segorbe",
+    "salario": 22500
+  },
+  {
+    "id": 17,
+    "puesto": "Desarrollador Web Junior",
+    "empresa": "WebCosta",
+    "ciudad": "Segorbe",
+    "salario": 20500
   }
 ]

@@ -41,9 +41,12 @@ class MainActivity : ComponentActivity() {
     private lateinit var barraValencia: ProgressBar
     private lateinit var barraMadrid: ProgressBar
     private lateinit var barraAlicante: ProgressBar
+
+    private lateinit var barraSegorbe: ProgressBar
     private lateinit var textoCantidadValencia: TextView
     private lateinit var textoCantidadMadrid: TextView
     private lateinit var textoCantidadAlicante: TextView
+    private lateinit var textoCantidadSegorbe: TextView
     private lateinit var contenedorOfertas: LinearLayout
     private val ofertas = ArrayList<Oferta>()
 
@@ -66,9 +69,11 @@ class MainActivity : ComponentActivity() {
         barraValencia = findViewById(R.id.barraValencia)
         barraMadrid = findViewById(R.id.barraMadrid)
         barraAlicante = findViewById(R.id.barraAlicante)
+        barraSegorbe = findViewById(R.id.barraSegorbe)
         textoCantidadValencia = findViewById(R.id.textoCantidadValencia)
         textoCantidadMadrid = findViewById(R.id.textoCantidadMadrid)
         textoCantidadAlicante = findViewById(R.id.textoCantidadAlicante)
+        textoCantidadSegorbe = findViewById(R.id.textoCantidadSegorbe)
         contenedorOfertas = findViewById(R.id.contenedorOfertas)
 
         configurarSpinner()
@@ -93,7 +98,7 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun configurarSpinner() {
-        val ciudades = arrayOf("Todas", "Valencia", "Madrid", "Alicante")
+        val ciudades = arrayOf("Todas", "Valencia", "Madrid", "Alicante", "Segorbe")
         val adaptador = ArrayAdapter(
             this,
             android.R.layout.simple_spinner_item,
@@ -172,25 +177,32 @@ class MainActivity : ComponentActivity() {
         val ofertasAlicante = ofertasFiltradas.count {
             it.ciudad == "Alicante"
         }
+        val ofertasSegorbe = ofertasFiltradas.count {
+            it.ciudad == "Segorbe"
+        }
 
         val valorMaximo = maxOf(
             ofertasValencia,
             ofertasMadrid,
             ofertasAlicante,
+            ofertasSegorbe,
             1
         )
 
         barraValencia.max = valorMaximo
         barraMadrid.max = valorMaximo
         barraAlicante.max = valorMaximo
+        barraSegorbe.max = valorMaximo
 
         barraValencia.progress = ofertasValencia
         barraMadrid.progress = ofertasMadrid
         barraAlicante.progress = ofertasAlicante
+        barraSegorbe.progress = ofertasSegorbe
 
         textoCantidadValencia.text = ofertasValencia.toString()
         textoCantidadMadrid.text = ofertasMadrid.toString()
         textoCantidadAlicante.text = ofertasAlicante.toString()
+        textoCantidadSegorbe.text = ofertasSegorbe.toString()
     }
 
     private val codigoCrearPdf = 100
