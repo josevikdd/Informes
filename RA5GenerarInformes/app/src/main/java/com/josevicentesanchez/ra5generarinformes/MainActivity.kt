@@ -52,6 +52,7 @@ class MainActivity : ComponentActivity() {
     private lateinit var contenedorOfertas: LinearLayout
     private val ofertas = ArrayList<Oferta>()
     private lateinit var salarioMinimo: EditText
+    private lateinit var textoMejorOferta: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,6 +81,7 @@ class MainActivity : ComponentActivity() {
         textoCantidadSegorbe = findViewById(R.id.textoCantidadSegorbe)
         contenedorOfertas = findViewById(R.id.contenedorOfertas)
         salarioMinimo = findViewById(R.id.salarioMinimo)
+        textoMejorOferta = findViewById(R.id.mejorOferta)
 
         configurarSpinner()
 
@@ -161,12 +163,23 @@ class MainActivity : ComponentActivity() {
         val salarioMaximo = ofertasFiltradas.maxOfOrNull { it.salario } ?: 0
         val salarioMinimo = ofertasFiltradas.minOfOrNull { it.salario } ?: 0
 
+        val ofertaMaxSalario: Oferta? = ofertasFiltradas.maxByOrNull { it.salario }
+
         textoCiudadSeleccionada.text = "Ciudad seleccionada: $ciudad"
         textoNumeroOfertas.text = "Numero de ofertas: $numeroOfertas"
         textoSalarioTotal.text = "Salario total: ${formatearSalario(salarioTotal)}"
         textoSalarioMedio.text = "Salario medio: ${formatearSalario(salarioMedio.toInt())}"
         textoSalarioMaximo.text = "Salario maximo: ${formatearSalario(salarioMaximo)}"
         textoSalarioMinimo.text = "Salario mínimo filtrado: ${formatearSalario(salarioMinimo)}"
+        textoMejorOferta.text = if (ofertaMaxSalario != null) {
+            "La oferta mejor pagada del filtro es: " +
+                    "${ofertaMaxSalario.puesto} en ${ofertaMaxSalario.empresa}, " +
+                    "en ${ofertaMaxSalario.ciudad}, con un salario de " +
+                    "${formatearSalario(ofertaMaxSalario.salario)} €"
+
+        } else {
+            "La oferta mejor pagada del filtro es: -"
+        }
 
         contenedorOfertas.removeAllViews()
 
