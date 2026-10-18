@@ -123,7 +123,8 @@ class MainActivity : ComponentActivity() {
                 objetoJson.getString("puesto"),
                 objetoJson.getString("empresa"),
                 objetoJson.getString("ciudad"),
-                objetoJson.getInt("salario")
+                objetoJson.getInt("salario"),
+                objetoJson.getString("modalidad")
             )
             listaOfertas.add(oferta)
         }

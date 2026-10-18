@@ -5,5 +5,6 @@ data class Oferta(
     val puesto: String,
     val empresa: String,
     val ciudad: String,
-    val salario: Int
+    val salario: Int,
+    val modalidad: String
 )

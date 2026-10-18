@@ -4,118 +4,135 @@
     "puesto": "Desarrollador Android Junior",
     "empresa": "TecnoLevante",
     "ciudad": "Valencia",
-    "salario": 21000
+    "salario": 21000,
+    "modalidad": "Remoto"
   },
   {
     "id": 2,
     "puesto": "Programador Kotlin Junior",
     "empresa": "AppSoluciones",
     "ciudad": "Valencia",
-    "salario": 22000
+    "salario": 22000,
+    "modalidad": "Presencial"
   },
   {
     "id": 3,
     "puesto": "Tecnico de Soporte",
     "empresa": "InfoAula",
     "ciudad": "Valencia",
-    "salario": 18000
+    "salario": 18000,
+    "modalidad": "Híbrido"
   },
   {
     "id": 4,
     "puesto": "Desarrollador Web Junior",
     "empresa": "PixelSoft",
     "ciudad": "Valencia",
-    "salario": 20000
+    "salario": 20000,
+    "modalidad": "Remoto"
   },
   {
     "id": 5,
     "puesto": "Analista Programador Junior",
     "empresa": "DatosPlus",
     "ciudad": "Valencia",
-    "salario": 23000
+    "salario": 23000,
+    "modalidad": "Presencial"
   },
   {
     "id": 6,
     "puesto": "Desarrollador Android Junior",
     "empresa": "MovilData",
     "ciudad": "Madrid",
-    "salario": 24000
+    "salario": 24000,
+    "modalidad": "Híbrido"
   },
   {
     "id": 7,
     "puesto": "Programador Java Junior",
     "empresa": "NubeCentro",
     "ciudad": "Madrid",
-    "salario": 23000
+    "salario": 23000,
+    "modalidad": "Remoto"
   },
   {
     "id": 8,
     "puesto": "Tecnico QA Junior",
     "empresa": "TestLab",
     "ciudad": "Madrid",
-    "salario": 21000
+    "salario": 21000,
+    "modalidad": "Presencial"
   },
   {
     "id": 9,
     "puesto": "Desarrollador Backend Junior",
     "empresa": "ServidorPro",
     "ciudad": "Madrid",
-    "salario": 25000
+    "salario": 25000,
+    "modalidad": "Híbrido"
   },
   {
     "id": 10,
     "puesto": "Programador Full Stack Junior",
     "empresa": "CodigoClaro",
     "ciudad": "Madrid",
-    "salario": 26000
+    "salario": 26000,
+    "modalidad": "Remoto"
   },
   {
     "id": 11,
     "puesto": "Desarrollador Android Junior",
     "empresa": "CostaApps",
     "ciudad": "Alicante",
-    "salario": 20000
+    "salario": 20000,
+    "modalidad": "Presencial"
   },
   {
     "id": 12,
     "puesto": "Programador Kotlin Junior",
     "empresa": "MarDigital",
     "ciudad": "Alicante",
-    "salario": 21000
+    "salario": 21000,
+    "modalidad": "Híbrido"
   },
   {
     "id": 13,
     "puesto": "Tecnico de Sistemas Junior",
     "empresa": "RedLocal",
     "ciudad": "Alicante",
-    "salario": 19000
+    "salario": 19000,
+    "modalidad": "Remoto"
   },
   {
     "id": 14,
     "puesto": "Desarrollador Web Junior",
     "empresa": "WebCosta",
     "ciudad": "Alicante",
-    "salario": 20500
+    "salario": 20500,
+    "modalidad": "Presencial"
   },
   {
     "id": 15,
     "puesto": "Analista de Datos Junior",
     "empresa": "DataMar",
     "ciudad": "Alicante",
-    "salario": 22500
+    "salario": 22500,
+    "modalidad": "Híbrido"
   },
   {
     "id": 16,
     "puesto": "Analista de Datos Junior",
     "empresa": "DataMar",
     "ciudad": "Segorbe",
-    "salario": 22500
+    "salario": 22500,
+    "modalidad": "Remoto"
   },
   {
     "id": 17,
     "puesto": "Desarrollador Web Junior",
     "empresa": "WebCosta",
     "ciudad": "Segorbe",
-    "salario": 20500
+    "salario": 20500,
+    "modalidad": "Presencial"
   }
 ]
