@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
     <TextView
@@ -13,50 +13,54 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Informe de ofertas"
-        android:textSize="26sp"
-        android:textStyle="bold" />
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:paddingBottom="12dp" />
 
     <TextView
         android:id="@+id/textoCiudad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Ciudad"
-        android:textSize="18sp" />
+        android:text="Selecciona una ciudad"
+        android:textSize="16sp" />
 
     <Spinner
         android:id="@+id/spinnerCiudad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="4dp" />
 
     <EditText
         android:id="@+id/salarioMinimo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Salario mínimo"
+        android:hint="Salario mínimo (€)"
         android:inputType="number"
         android:text="0" />
-
 
     <Button
         android:id="@+id/botonGenerarInforme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="Generar informe" />
 
     <Button
         android:id="@+id/botonExportarPdf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:text="Exportar PDF" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:background="#CCCCCC" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:layout_weight="1">
 
         <LinearLayout
@@ -70,6 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Ciudad seleccionada: -"
+                android:textStyle="bold"
                 android:textSize="16sp" />
 
             <TextView
@@ -77,54 +82,57 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Numero de ofertas: -"
-                android:textSize="16sp" />
+                android:text="Número de ofertas: -"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/textoSalarioTotal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="6dp"
                 android:text="Salario total: -"
-                android:textSize="16sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/textoSalarioMedio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="6dp"
                 android:text="Salario medio: -"
-                android:textSize="16sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/textoSalarioMaximo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Salario maximo: -"
-                android:textSize="16sp" />
+                android:layout_marginTop="6dp"
+                android:text="Salario máximo: -"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/textoSalarioMinimo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="6dp"
                 android:text="Salario mínimo: -"
-                android:textSize="16sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/mejorOferta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="12dp"
+                android:padding="10dp"
+                android:background="#EEEEEE"
                 android:text="La oferta mejor pagada del filtro es: -"
-                android:textSize="16sp" />
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textoTituloGrafico"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="20dp"
                 android:text="Ofertas por ciudad"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -132,28 +140,26 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp">
+                    android:paddingVertical="6dp">
 
                     <TextView
-                        android:layout_width="90dp"
+                        android:layout_width="85dp"
                         android:layout_height="wrap_content"
-                        android:text="Valencia"
-                        android:textSize="16sp" />
+                        android:text="Valencia" />
 
                     <ProgressBar
                         android:id="@+id/barraValencia"
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="0dp"
-                        android:layout_height="20dp"
+                        android:layout_height="18dp"
                         android:layout_weight="1"
                         android:indeterminate="false"
                         android:max="1"
@@ -161,11 +167,10 @@
 
                     <TextView
                         android:id="@+id/textoCantidadValencia"
-                        android:layout_width="40dp"
+                        android:layout_width="35dp"
                         android:layout_height="wrap_content"
                         android:gravity="end"
-                        android:text="0"
-                        android:textSize="16sp" />
+                        android:text="0" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -173,20 +178,18 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp">
+                    android:paddingVertical="6dp">
 
                     <TextView
-                        android:layout_width="90dp"
+                        android:layout_width="85dp"
                         android:layout_height="wrap_content"
-                        android:text="Madrid"
-                        android:textSize="16sp" />
+                        android:text="Madrid" />
 
                     <ProgressBar
                         android:id="@+id/barraMadrid"
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="0dp"
-                        android:layout_height="20dp"
+                        android:layout_height="18dp"
                         android:layout_weight="1"
                         android:indeterminate="false"
                         android:max="1"
@@ -194,11 +197,10 @@
 
                     <TextView
                         android:id="@+id/textoCantidadMadrid"
-                        android:layout_width="40dp"
+                        android:layout_width="35dp"
                         android:layout_height="wrap_content"
                         android:gravity="end"
-                        android:text="0"
-                        android:textSize="16sp" />
+                        android:text="0" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -206,20 +208,18 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp">
+                    android:paddingVertical="6dp">
 
                     <TextView
-                        android:layout_width="90dp"
+                        android:layout_width="85dp"
                         android:layout_height="wrap_content"
-                        android:text="Alicante"
-                        android:textSize="16sp" />
+                        android:text="Alicante" />
 
                     <ProgressBar
                         android:id="@+id/barraAlicante"
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="0dp"
-                        android:layout_height="20dp"
+                        android:layout_height="18dp"
                         android:layout_weight="1"
                         android:indeterminate="false"
                         android:max="1"
@@ -227,11 +227,10 @@
 
                     <TextView
                         android:id="@+id/textoCantidadAlicante"
-                        android:layout_width="40dp"
+                        android:layout_width="35dp"
                         android:layout_height="wrap_content"
                         android:gravity="end"
-                        android:text="0"
-                        android:textSize="16sp" />
+                        android:text="0" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -239,20 +238,18 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp">
+                    android:paddingVertical="6dp">
 
                     <TextView
-                        android:layout_width="90dp"
+                        android:layout_width="85dp"
                         android:layout_height="wrap_content"
-                        android:text="Segorbe"
-                        android:textSize="16sp" />
+                        android:text="Segorbe" />
 
                     <ProgressBar
                         android:id="@+id/barraSegorbe"
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="0dp"
-                        android:layout_height="20dp"
+                        android:layout_height="18dp"
                         android:layout_weight="1"
                         android:indeterminate="false"
                         android:max="1"
@@ -260,11 +257,10 @@
 
                     <TextView
                         android:id="@+id/textoCantidadSegorbe"
-                        android:layout_width="40dp"
+                        android:layout_width="35dp"
                         android:layout_height="wrap_content"
                         android:gravity="end"
-                        android:text="0"
-                        android:textSize="16sp" />
+                        android:text="0" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -273,8 +269,8 @@
                 android:id="@+id/textoTituloListado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Ofertas"
+                android:layout_marginTop="20dp"
+                android:text="Listado de ofertas"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 

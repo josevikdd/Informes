@@ -175,7 +175,7 @@ class MainActivity : ComponentActivity() {
             "La oferta mejor pagada del filtro es: " +
                     "${ofertaMaxSalario.puesto} en ${ofertaMaxSalario.empresa}, " +
                     "en ${ofertaMaxSalario.ciudad}, con un salario de " +
-                    "${formatearSalario(ofertaMaxSalario.salario)} €"
+                    "${formatearSalario(ofertaMaxSalario.salario)} "
 
         } else {
             "La oferta mejor pagada del filtro es: -"
