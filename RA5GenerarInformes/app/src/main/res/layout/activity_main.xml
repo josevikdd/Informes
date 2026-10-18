@@ -30,6 +30,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp" />
 
+    <EditText
+        android:id="@+id/salarioMinimo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Salario mínimo"
+        android:inputType="number"
+        android:text="0" />
+
+
     <Button
         android:id="@+id/botonGenerarInforme"
         android:layout_width="match_parent"

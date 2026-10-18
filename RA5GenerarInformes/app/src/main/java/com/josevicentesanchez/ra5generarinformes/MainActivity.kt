@@ -24,6 +24,7 @@ import com.josevicentesanchez.ra5generarinformes.ui.theme.RA5GenerarInformesThem
 import org.json.JSONArray
 import android.graphics.Color
 import android.graphics.Paint
+import android.widget.EditText
 import android.widget.Toast
 import kotlin.math.min
 
@@ -49,6 +50,7 @@ class MainActivity : ComponentActivity() {
     private lateinit var textoCantidadSegorbe: TextView
     private lateinit var contenedorOfertas: LinearLayout
     private val ofertas = ArrayList<Oferta>()
+    private lateinit var salarioMinimo: EditText
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,6 +77,7 @@ class MainActivity : ComponentActivity() {
         textoCantidadAlicante = findViewById(R.id.textoCantidadAlicante)
         textoCantidadSegorbe = findViewById(R.id.textoCantidadSegorbe)
         contenedorOfertas = findViewById(R.id.contenedorOfertas)
+        salarioMinimo = findViewById(R.id.salarioMinimo)
 
         configurarSpinner()
 
@@ -82,7 +85,10 @@ class MainActivity : ComponentActivity() {
 
         botonGenerarInforme.setOnClickListener {
             val ciudadSeleccionada = spinnerCiudad.selectedItem.toString()
-            val ofertasFiltradas = filtrarOfertasPorCiudad(ciudadSeleccionada)
+            val minimo = salarioMinimo.text.toString().toIntOrNull() ?: 0
+            val ofertasFiltradas = filtrarOfertasPorCiudad(ciudadSeleccionada).filter {
+                oferta -> oferta.salario >= minimo
+            }
             mostrarResultado(ciudadSeleccionada, ofertasFiltradas)
         }
 
