@@ -39,6 +39,7 @@ class MainActivity : ComponentActivity() {
     private lateinit var textoSalarioTotal: TextView
     private lateinit var textoSalarioMedio: TextView
     private lateinit var textoSalarioMaximo: TextView
+    private lateinit var textoSalarioMinimo: TextView
     private lateinit var barraValencia: ProgressBar
     private lateinit var barraMadrid: ProgressBar
     private lateinit var barraAlicante: ProgressBar
@@ -68,6 +69,7 @@ class MainActivity : ComponentActivity() {
         textoSalarioTotal = findViewById(R.id.textoSalarioTotal)
         textoSalarioMedio = findViewById(R.id.textoSalarioMedio)
         textoSalarioMaximo = findViewById(R.id.textoSalarioMaximo)
+        textoSalarioMinimo = findViewById(R.id.textoSalarioMinimo)
         barraValencia = findViewById(R.id.barraValencia)
         barraMadrid = findViewById(R.id.barraMadrid)
         barraAlicante = findViewById(R.id.barraAlicante)
@@ -157,12 +159,14 @@ class MainActivity : ComponentActivity() {
             0.0
         }
         val salarioMaximo = ofertasFiltradas.maxOfOrNull { it.salario } ?: 0
+        val salarioMinimo = ofertasFiltradas.minOfOrNull { it.salario } ?: 0
 
         textoCiudadSeleccionada.text = "Ciudad seleccionada: $ciudad"
         textoNumeroOfertas.text = "Numero de ofertas: $numeroOfertas"
         textoSalarioTotal.text = "Salario total: ${formatearSalario(salarioTotal)}"
         textoSalarioMedio.text = "Salario medio: ${formatearSalario(salarioMedio.toInt())}"
         textoSalarioMaximo.text = "Salario maximo: ${formatearSalario(salarioMaximo)}"
+        textoSalarioMinimo.text = "Salario mínimo filtrado: ${formatearSalario(salarioMinimo)}"
 
         contenedorOfertas.removeAllViews()
 
