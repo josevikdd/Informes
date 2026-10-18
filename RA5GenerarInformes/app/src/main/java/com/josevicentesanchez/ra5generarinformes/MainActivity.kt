@@ -218,10 +218,11 @@ class MainActivity : ComponentActivity() {
 
     private val codigoCrearPdf = 100
     private fun abrirSelectorParaGuardarPdf() {
+        val ciudadSeleccionada = spinnerCiudad.selectedItem.toString()
         val intent = Intent(Intent.ACTION_CREATE_DOCUMENT)
         intent.addCategory(Intent.CATEGORY_OPENABLE)
         intent.type = "application/pdf"
-        intent.putExtra(Intent.EXTRA_TITLE, "informe_ofertas.pdf")
+        intent.putExtra(Intent.EXTRA_TITLE, "informe_${ciudadSeleccionada}.pdf")
         startActivityForResult(intent, codigoCrearPdf)
     }
 
